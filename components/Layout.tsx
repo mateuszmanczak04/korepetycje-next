@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import Navigation from './Navigation';
+import TopBar from './TopBar';
 
 type Props = {
   children: ReactNode;
@@ -7,8 +7,8 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div className='w-screen flex flex-col items-center px-4 py-32 gap-8'>
-      <Navigation />
+    <div className='w-screen flex flex-col items-center px-4 py-40 gap-8'>
+      <TopBar />
       <div className='flex-1 w-full max-w-3xl'>{children}</div>
     </div>
   );
