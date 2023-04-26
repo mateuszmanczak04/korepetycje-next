@@ -5,8 +5,8 @@ const Hero = () => {
   return (
     <section className='flex flex-col gap-8 items-center'>
       <div className='flex flex-col w-full'>
-        <h1 className='bg-orange-400 w-fit'>Koreczki u Matiego</h1>
-        <h2 className='ml-4'>z matmy</h2>
+        <h1 className='bg-orange-400 w-fit'>Korepetycje</h1>
+        <h2 className='ml-4'>Mateusz Mańczak</h2>
       </div>
       <Image
         src='/me.jpg'

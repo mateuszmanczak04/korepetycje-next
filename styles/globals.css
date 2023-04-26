@@ -9,9 +9,9 @@ body {
 }
 
 h1 {
-  @apply text-6xl font-extrabold;
+  @apply text-5xl sm:text-6xl font-extrabold;
 }
 
 h2 {
-  @apply text-3xl font-bold bg-orange-300 w-fit;
+  @apply text-2xl sm:text-3xl font-bold bg-orange-300 w-fit;
 }
