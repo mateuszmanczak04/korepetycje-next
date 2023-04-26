@@ -29,7 +29,7 @@ const Hero = () => {
           roku zacząłem dzielić się wiedzą za pomocą korepetycji.
           <br />
           <br />
-          Mam nadzieję, że po przeczytaniu treści na tej stronie zdcydujesz się
+          Mam nadzieję, że po przeczytaniu treści na tej stronie zdecydujesz się
           podjąć ze mną współpracę i poprawić swoje umiejętności matematyczne.
         </p>
       </div>

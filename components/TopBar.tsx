@@ -41,7 +41,7 @@ const TopBar = () => {
       </button>
       <div
         className={`${
-          isOpen ? 'h-54' : 'h-0'
+          isOpen ? 'h-60' : 'h-0'
         } bg-white transition-all md:h-min`}>
         <nav
           className={`px-2 py-2 h-full flex-col justify-between flex md:flex-row w-full  md:justify-between`}>
