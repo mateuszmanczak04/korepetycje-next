@@ -1,7 +1,7 @@
-import Hero from '@/components/Hero';
-import Level from '@/components/Level';
-import PriceList from '@/components/PriceList';
-import Process from '@/components/Process';
+import Hero from '@/components/index/Hero';
+import Level from '@/components/index/Level';
+import PriceList from '@/components/index/PriceList';
+import Process from '@/components/index/Process';
 import Head from 'next/head';
 
 export default function Home() {
