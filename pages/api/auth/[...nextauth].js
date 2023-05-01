@@ -63,7 +63,18 @@ export const authOptions = {
 
         await User.create({ email: user.email, username: user.name });
       }
+
       return true;
+    },
+    async jwt({ token }) {
+      await dbConnect();
+      const user = await User.findOne({ email: token.email }).select('_id');
+      token._id = user._id;
+      return token;
+    },
+    async session({ session, token }) {
+      session.user._id = token._id;
+      return session;
     },
   },
 };

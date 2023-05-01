@@ -28,7 +28,6 @@ const LoginForm = ({ setOption }: Props) => {
       email,
       password,
     });
-    console.log(result);
 
     if (result?.error) {
       setError(result?.error);

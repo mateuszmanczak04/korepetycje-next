@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
 
-export type User = {
-  email: string;
-  username: string;
-  password: string;
-  _id: string;
+export type UserType = {
+  email?: string;
+  username?: string;
+  password?: string;
+  _id?: string;
 };
 
 const UserSchema = new mongoose.Schema({
