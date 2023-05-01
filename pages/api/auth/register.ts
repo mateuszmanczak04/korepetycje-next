@@ -49,8 +49,6 @@ export default async function handler(
       password: hashedPassword,
     });
 
-    await User.deleteMany({});
-
     return res.status(200).json({ message: 'Pomyślnie utworzono konto.' });
   } catch (err) {
     return res.status(500).json({ message: 'Błąd serwera.' });
