@@ -45,7 +45,10 @@ export default async function handler(
       createdAt: now,
     });
 
-    const populatedReview = await newReview.populate('author', 'email');
+    const populatedReview = await newReview.populate(
+      'author',
+      'email username'
+    );
 
     return res.status(200).json({ review: populatedReview });
   } catch (err) {
