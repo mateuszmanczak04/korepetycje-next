@@ -27,7 +27,7 @@ const Opinie = () => {
         <Head>
           <title>Opinie - Korepetycje - Mateusz Mańczak</title>
         </Head>
-        <p className='w-full text-center'>Ładowanie...</p>;
+        <p className='w-full text-center'>Ładowanie...</p>
       </div>
     );
 
@@ -37,7 +37,7 @@ const Opinie = () => {
         <Head>
           <title>Opinie - Korepetycje - Mateusz Mańczak</title>
         </Head>
-        <p className='text-red-500 w-full text-center'>{error}</p>;
+        <p className='text-red-500 w-full text-center'>{error}</p>
       </div>
     );
 
