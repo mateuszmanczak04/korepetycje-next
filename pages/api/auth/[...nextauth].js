@@ -7,33 +7,34 @@ import bcrypt from 'bcryptjs';
 
 export const authOptions = {
   providers: [
-    CredentialsProvider({
-      name: 'Credentials',
-      async authorize(credentials) {
-        const { email, password } = credentials;
+    // credentials provider disabled
+    // CredentialsProvider({
+    //   name: 'Credentials',
+    //   async authorize(credentials) {
+    //     const { email, password } = credentials;
 
-        await dbConnect();
+    //     await dbConnect();
 
-        const user = await User.findOne({ email }).select('email password');
+    //     const user = await User.findOne({ email }).select('email password');
 
-        if (!user) {
-          throw new Error('Niepoprawne dane logowania.');
-        }
+    //     if (!user) {
+    //       throw new Error('Niepoprawne dane logowania.');
+    //     }
 
-        if (!user.password || user.password.length === 0) {
-          throw new Error('Niepoprawne dane logowania.');
-        }
+    //     if (!user.password || user.password.length === 0) {
+    //       throw new Error('Niepoprawne dane logowania.');
+    //     }
 
-        const passwordsMatch = await bcrypt.compare(password, user.password);
-        if (!passwordsMatch) {
-          throw new Error('Niepoprawne dane logowania.');
-        }
+    //     const passwordsMatch = await bcrypt.compare(password, user.password);
+    //     if (!passwordsMatch) {
+    //       throw new Error('Niepoprawne dane logowania.');
+    //     }
 
-        return {
-          email: user.email,
-        };
-      },
-    }),
+    //     return {
+    //       email: user.email,
+    //     };
+    //   },
+    // }),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,

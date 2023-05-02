@@ -1,14 +1,21 @@
 import Head from 'next/head';
 import React from 'react';
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import LoginOrRegister from '@/components/konto/LoginOrRegister';
+import appAxios from '../lib/appAxios';
+import LoginWithGoogle from '@/components/konto/LoginWithGoogle';
 
 const Konto = () => {
   // session
   const { data: session } = useSession();
 
   if (!session) {
-    return <LoginOrRegister />;
+    // return <LoginOrRegister />;
+    return (
+      <div className='w-full justify-center flex'>
+        <LoginWithGoogle />
+      </div>
+    );
   }
 
   return (

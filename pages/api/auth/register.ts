@@ -8,6 +8,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  return; // disabled
+
   if (req.method !== 'POST') {
     return;
   }
