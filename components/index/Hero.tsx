@@ -6,7 +6,7 @@ const Hero = () => {
     <section className='flex flex-col gap-8 items-center'>
       <div className='flex flex-col w-full'>
         <h1 className='bg-orange-400 w-fit'>Korepetycje</h1>
-        <h2 className='ml-4'>Mateusz Mańczak</h2>
+        <h2 className='ml-4 bg-orange-300'>Mateusz Mańczak</h2>
       </div>
       <Image
         src='/me.jpg'
@@ -16,7 +16,7 @@ const Hero = () => {
         className='w-full max-w-lg aspect-square object-cover object-top rounded-full border-12 border-orange-400'
       />
       <div className='flex flex-col py-4'>
-        <h2>Pozwól mi się przedstawić.</h2>
+        <h2 className='bg-orange-300'>Pozwól mi się przedstawić.</h2>
         <br />
         <p className='text-justify'>
           Jak już pewnie zdążyłeś się domyślić, mam na imię Mateusz i mieszkam w
