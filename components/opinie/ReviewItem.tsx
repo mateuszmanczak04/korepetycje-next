@@ -1,4 +1,3 @@
-import { ReviewType } from '@/models/Review';
 import React, { useRef, useState } from 'react';
 import Rating from './Rating';
 import { getDateSlug } from '@/lib/getDateSlug';
@@ -8,7 +7,7 @@ import { useSession } from 'next-auth/react';
 import { useAppDispatch } from '@/redux/store';
 import { deleteReview } from '@/redux/review';
 
-const ReviewItem = ({ title, author, createdAt, rating, _id }: ReviewType) => {
+const ReviewItem = ({ title, author, createdAt, rating, _id }: Review) => {
   // session
   const { data: session } = useSession();
 
@@ -31,7 +30,7 @@ const ReviewItem = ({ title, author, createdAt, rating, _id }: ReviewType) => {
     <div className='w-full shadow-lg p-4 rounded-xl flex flex-col gap-2 '>
       <div className='w-full flex justify-between items-center'>
         <p className='text-gray-500'>{author.username}</p>
-        {session && session?.user?.email === author?.email && (
+        {session && session?.user?._id === author?._id && (
           <div className='relative' ref={menuRef}>
             <button>
               <BsThreeDotsVertical

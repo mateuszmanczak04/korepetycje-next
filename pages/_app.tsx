@@ -11,15 +11,16 @@ export default function App({
   pageProps: { session, ...pageProps },
 }: AppProps) {
   return (
-    <Layout>
-      <Head>
-        <title>Korepetycje - Mateusz Mańczak</title>
-      </Head>
-      <SessionProvider session={session}>
-        <Provider store={store}>
+    <SessionProvider session={session}>
+      <Provider store={store}>
+        <Layout>
+          <Head>
+            <title>Korepetycje - Mateusz Mańczak</title>
+          </Head>
+
           <Component {...pageProps} />
-        </Provider>
-      </SessionProvider>
-    </Layout>
+        </Layout>{' '}
+      </Provider>
+    </SessionProvider>
   );
 }

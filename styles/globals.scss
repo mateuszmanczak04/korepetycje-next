@@ -39,5 +39,9 @@ h3 {
 input[type='email'],
 input[type='text'],
 input[type='password'] {
-  @apply py-1 px-2 rounded-md w-full border;
+  @apply py-1 px-2 rounded-md w-full border outline-none;
+
+  &:focus {
+    @apply border-2 border-orange-500;
+  }
 }

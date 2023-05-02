@@ -1,9 +1,9 @@
 import NextAuth from 'next-auth/next';
 import GoogleProvider from 'next-auth/providers/google';
 import User from '../../../models/User';
-import CredentialsProvider from 'next-auth/providers/credentials';
+// import CredentialsProvider from 'next-auth/providers/credentials';
 import dbConnect from '../../../lib/dbConnect';
-import bcrypt from 'bcryptjs';
+// import bcrypt from 'bcryptjs';
 
 export const authOptions = {
   providers: [
@@ -62,7 +62,11 @@ export const authOptions = {
           return true;
         }
 
-        await User.create({ email: user.email, username: user.name });
+        await User.create({
+          email: user.email,
+          username: user.name,
+          imgUrl: user.image,
+        });
       }
 
       return true;
@@ -71,10 +75,14 @@ export const authOptions = {
       await dbConnect();
       const user = await User.findOne({ email: token.email }).select('_id');
       token._id = user._id;
+      token.name = undefined;
+      token.picture = undefined;
+      // token.email = undefined;
       return token;
     },
     async session({ session, token }) {
       session.user._id = token._id;
+      session.user.email = undefined;
       return session;
     },
   },

@@ -1,12 +1,5 @@
 import mongoose from 'mongoose';
 
-export type UserType = {
-  email?: string;
-  username?: string;
-  password?: string;
-  _id?: string;
-};
-
 const UserSchema = new mongoose.Schema({
   email: {
     required: true,
@@ -17,6 +10,9 @@ const UserSchema = new mongoose.Schema({
     type: String,
   },
   password: {
+    type: String,
+  },
+  imgUrl: {
     type: String,
   },
 });

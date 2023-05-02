@@ -1,9 +1,8 @@
-import { ReviewType } from '@/models/Review';
 import { createAsyncThunk, createSlice, isFulfilled } from '@reduxjs/toolkit';
 import appAxios from '../lib/appAxios';
 
 type InitialState = {
-  reviews: ReviewType[];
+  reviews: Review[];
   loading: boolean;
   error: string;
   mayAdd: boolean;

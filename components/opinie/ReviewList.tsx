@@ -1,5 +1,4 @@
 import React from 'react';
-import { ReviewType } from '@/models/Review';
 import ReviewItem from './ReviewItem';
 import { useAppSelector } from '@/redux/store';
 import { getReviews } from '@/redux/review';
@@ -7,6 +6,8 @@ import { getReviews } from '@/redux/review';
 const ReviewList = () => {
   // redux
   const reviews = useAppSelector(getReviews);
+
+  console.log(reviews);
 
   return (
     <div className='w-full flex flex-col gap-4'>
@@ -20,7 +21,7 @@ const ReviewList = () => {
           </p>
         </div>
       )}
-      {reviews.map((review: ReviewType) => (
+      {reviews.map((review: Review) => (
         <ReviewItem
           _id={review._id}
           key={review._id}

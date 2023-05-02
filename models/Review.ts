@@ -1,13 +1,5 @@
 import mongoose from 'mongoose';
 
-export type ReviewType = {
-  title: string;
-  rating: number;
-  author: { username: string; email: string };
-  _id: string;
-  createdAt: number;
-};
-
 const ReviewSchema = new mongoose.Schema({
   title: {
     type: String,
