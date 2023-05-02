@@ -3,7 +3,7 @@ import React from 'react';
 const Process = () => {
   return (
     <section className='flex flex-col gap-4'>
-      <h2 className='bg-orange-300'>Przebieg lekcji</h2>
+      <h3 className='bg-orange-300'>Przebieg lekcji</h3>
       <p>
         Całą lekcja polega na robieniu tego, co w matematyce najważniejsze,
         czyli robieniu zadań. Uczeń podaje mi jakie zagadnienia musi opanować

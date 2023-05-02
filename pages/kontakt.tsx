@@ -3,11 +3,10 @@ import React from 'react';
 
 const Kontakt = () => {
   return (
-    <div>
+    <div className='flex flex-col gap-4 items-center'>
       <Head>
         <title>Kontakt - Korepetycje - Mateusz Mańczak</title>
       </Head>
-      Strona w budowie
     </div>
   );
 };
