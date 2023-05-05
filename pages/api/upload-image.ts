@@ -32,10 +32,7 @@ export default async function handler(
     const url = await s3.getSignedUrlPromise('putObject', fileParams);
 
     return res.status(200).json({ url });
-  } catch (err: any) {
-    console.log(err);
-    return res
-      .status(500)
-      .json({ message: 'Błąd serwera.', error: err.message });
+  } catch (err) {
+    return res.status(500).json({ message: 'Błąd serwera.' });
   }
 }
