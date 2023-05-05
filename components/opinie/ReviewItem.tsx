@@ -6,6 +6,7 @@ import useOnClickOutside from '@/hooks/useOnClickOutside';
 import { useSession } from 'next-auth/react';
 import { useAppDispatch } from '@/redux/store';
 import { deleteReview } from '@/redux/review';
+import Image from 'next/image';
 
 const ReviewItem = ({ title, author, createdAt, rating, _id }: Review) => {
   // session
@@ -26,10 +27,21 @@ const ReviewItem = ({ title, author, createdAt, rating, _id }: Review) => {
   const menuRef: any = useRef();
   useOnClickOutside(menuRef, handleCloseMenu);
 
+  console.log(author);
+
   return (
     <div className='w-full shadow-lg p-4 rounded-xl flex flex-col gap-2 '>
       <div className='w-full flex justify-between items-center'>
-        <p className='text-gray-500'>{author.username}</p>
+        <div className='flex gap-2 items-center bg-gray-100 rounded-full pr-4'>
+          <Image
+            src={author.imgUrl}
+            alt='avatar'
+            width={100}
+            height={100}
+            className='w-8 h-8 rounded-full object-cover'
+          />
+          <p className='text-gray-500'>{author.username}</p>
+        </div>
         {session && session?.user?._id === author?._id && (
           <div className='relative' ref={menuRef}>
             <button>

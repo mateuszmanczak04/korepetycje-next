@@ -14,7 +14,7 @@ export default async function handler(
     await dbConnect();
     const reviews = await Review.find().populate(
       'author',
-      'username _id email'
+      'username _id email imgUrl'
     );
 
     return res.status(200).json({ reviews });

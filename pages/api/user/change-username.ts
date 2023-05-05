@@ -26,6 +26,14 @@ export default async function handler(
       return res.status(400).json({ message: 'Niepoprawna nazwa użytkownika' });
     }
 
+    if (username.length > 40) {
+      return res
+        .status(400)
+        .json({
+          message: 'Maksymalna długość nazwy użytkownika to 40 znaków.',
+        });
+    }
+
     await User.findOneAndUpdate({ _id: token._id }, { username });
 
     return res

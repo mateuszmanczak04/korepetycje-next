@@ -6,6 +6,7 @@ declare global {
     username?: string;
     password?: string;
     _id?: string;
+    imgUrl: string;
   }
 
   interface Review {
