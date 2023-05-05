@@ -7,8 +7,6 @@ const ReviewList = () => {
   // redux
   const reviews = useAppSelector(getReviews);
 
-  console.log(reviews);
-
   return (
     <div className='w-full flex flex-col gap-4'>
       {reviews.length === 0 && (

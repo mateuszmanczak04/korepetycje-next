@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import appAxios from '../lib/appAxios';
+import { getSession } from 'next-auth/react';
 
 type InitialState = {
   user: {
@@ -27,6 +28,10 @@ export const fetchUserData = createAsyncThunk(
   'user/fetch-user-data',
   async (_, thunkAPI: any) => {
     try {
+      const session = await getSession();
+      if (!session) {
+        return {};
+      }
       const res = await appAxios.get('/api/user/get-data');
       const { username, _id, email, imgUrl } = res.data.user;
 
@@ -46,13 +51,22 @@ export const changeUsername = createAsyncThunk(
   'user/change-username',
   async ({ username }: { username: string }, thunkAPI: any) => {
     try {
-      const res = await appAxios.patch('/api/user/change-username', {
+      await appAxios.patch('/api/user/change-username', {
         username,
       });
-
-      console.log(res);
-
       return username;
+    } catch (err: any) {
+      return thunkAPI.rejectWithValue(err.response.data.message);
+    }
+  }
+);
+
+export const changeProfilePicture = createAsyncThunk(
+  'user/change-profile-picture',
+  async ({ imgUrl }: { imgUrl: string }, thunkAPI) => {
+    try {
+      await appAxios.put('/api/user/change-profile-picture', { imgUrl });
+      return imgUrl;
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.response.data.message);
     }
@@ -87,6 +101,19 @@ const userSlice = createSlice({
       state.user.username = action.payload;
     });
     builder.addCase(changeUsername.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload as string;
+    });
+    builder.addCase(changeProfilePicture.pending, (state) => {
+      state.loading = true;
+      state.error = '';
+    });
+    builder.addCase(changeProfilePicture.fulfilled, (state, action) => {
+      state.loading = false;
+      state.error = '';
+      state.user.imgUrl = action.payload;
+    });
+    builder.addCase(changeProfilePicture.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload as string;
     });

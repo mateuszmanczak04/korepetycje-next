@@ -26,7 +26,7 @@ const Kontakt = () => {
         rel='noreferrer'
         className={itemClasses}>
         <AiFillFacebook className='w-6 h-6' />
-        <a>Facebook</a>
+        Facebook
       </a>
     </div>
   );
