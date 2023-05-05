@@ -11,23 +11,25 @@ const ChangeProfilePicture = () => {
   const dispatch = useAppDispatch();
   const user = useAppSelector(getUserData);
   const [imgUrl, setImgUrl] = useState(user.imgUrl);
+  const [imgFile, setImgFile] = useState<any>(null);
 
-  const handleUpload = async (e: any) => {
+  const handleChangePhoto = async (e: any) => {
     const file = e.target.files[0];
-    const response = await appAxios.post('/api/upload-image', {
-      type: file.type,
-      name: file.name,
-    });
+    const reader = new FileReader();
 
-    const { url } = response.data;
-    await axios.put(url, file);
-    setImgUrl(url.split('?')[0]);
+    reader.onloadend = () => {
+      setImgUrl(reader.result);
+    };
+
+    reader.readAsDataURL(file);
+
+    setImgFile(file);
   };
 
-  const handleSubmitProfilePicture = () => {
+  const handleSubmitProfilePicture = async () => {
     dispatch(
       changeProfilePicture({
-        imgUrl: imgUrl,
+        imgFile,
       })
     );
   };
@@ -47,7 +49,7 @@ const ChangeProfilePicture = () => {
         <input
           type='file'
           className='hidden'
-          onChange={handleUpload}
+          onChange={handleChangePhoto}
           accept='image/png image/jpeg'
         />
         <AiOutlineUpload className=' left-1/2 top-1/2  bg-gray-200 bg-opacity-50 rounded-md text-gray-500 w-40 h-40 hover:opacity-90 transition' />

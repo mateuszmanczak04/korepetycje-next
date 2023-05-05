@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import appAxios from '../lib/appAxios';
 import { getSession } from 'next-auth/react';
+import axios from 'axios';
 
 type InitialState = {
   user: {
@@ -63,9 +64,20 @@ export const changeUsername = createAsyncThunk(
 
 export const changeProfilePicture = createAsyncThunk(
   'user/change-profile-picture',
-  async ({ imgUrl }: { imgUrl: string }, thunkAPI) => {
+  async ({ imgFile }: { imgFile: any }, thunkAPI) => {
     try {
-      await appAxios.put('/api/user/change-profile-picture', { imgUrl });
+      const response = await appAxios.post('/api/upload-image', {
+        type: imgFile.type,
+        name: imgFile.name,
+      });
+
+      const { url } = response.data;
+      await axios.put(url, imgFile);
+      const imgUrl = url.split('?')[0];
+
+      await appAxios.put('/api/user/change-profile-picture', {
+        imgUrl,
+      });
       return imgUrl;
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.response.data.message);
