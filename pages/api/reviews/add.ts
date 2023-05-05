@@ -47,7 +47,7 @@ export default async function handler(
 
     const populatedReview = await newReview.populate(
       'author',
-      'email username'
+      'email username imgUrl'
     );
 
     return res.status(200).json({ review: populatedReview });

@@ -27,24 +27,24 @@ const ReviewItem = ({ title, author, createdAt, rating, _id }: Review) => {
   const menuRef: any = useRef();
   useOnClickOutside(menuRef, handleCloseMenu);
 
-  console.log(author);
-
   return (
-    <div className='w-full shadow-lg p-4 rounded-xl flex flex-col gap-2 '>
-      <div className='w-full flex justify-between items-center'>
-        <div className='flex gap-2 items-center bg-gray-100 rounded-full pr-4'>
+    <div className='w-full shadow-lg p-4 rounded-xl flex flex-col gap-2'>
+      <div className='w-full flex justify-between items-center max-w-full'>
+        <div className='flex gap-2 items-center bg-gray-100 rounded-full pr-4 w-max'>
           <Image
             src={author.imgUrl}
             alt='avatar'
-            width={100}
-            height={100}
+            width={60}
+            height={60}
             className='w-8 h-8 rounded-full object-cover'
           />
-          <p className='text-gray-500'>{author.username}</p>
+          <p className='text-gray-500 overflow-ellipsis whitespace-nowrap overflow-hidden'>
+            {author.username}
+          </p>
         </div>
         {session && session?.user?._id === author?._id && (
           <div className='relative' ref={menuRef}>
-            <button>
+            <button className='bg-white w-8 h-8 flex items-center justify-center hover:bg-gray-100 transition rounded-full'>
               <BsThreeDotsVertical
                 className='w-6 h-6'
                 onClick={handleToggleMenu}
@@ -52,7 +52,7 @@ const ReviewItem = ({ title, author, createdAt, rating, _id }: Review) => {
             </button>
 
             <div
-              className={`bg-white p-1 rounded-md absolute right-8 -top-2 shadow-md transition overflow-hidden ${
+              className={`bg-white p-1 rounded-md absolute right-10 top-0 shadow-md transition overflow-hidden ${
                 openMenu ? 'opacity-100' : 'opacity-0'
               }`}>
               <button
