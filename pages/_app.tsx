@@ -5,6 +5,10 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import store from '@/redux/store';
 import { Provider } from 'react-redux';
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
+
+const persistor = persistStore(store);
 
 export default function App({
   Component,
@@ -13,13 +17,15 @@ export default function App({
   return (
     <SessionProvider session={session}>
       <Provider store={store}>
-        <Layout>
-          <Head>
-            <title>Korepetycje - Mateusz Mańczak</title>
-          </Head>
+        <PersistGate persistor={persistor}>
+          <Layout>
+            <Head>
+              <title>Korepetycje - Mateusz Mańczak</title>
+            </Head>
 
-          <Component {...pageProps} />
-        </Layout>{' '}
+            <Component {...pageProps} />
+          </Layout>
+        </PersistGate>
       </Provider>
     </SessionProvider>
   );

@@ -10,7 +10,10 @@ import {
   StarIcon,
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
+import { HiOutlineCog } from 'react-icons/hi';
 import { signOut, useSession } from 'next-auth/react';
+import { useAppSelector } from '@/redux/store';
+import { getCookiesAccepted } from '@/redux/settings';
 
 const TopBar = () => {
   const linkClasses = 'p-2 rounded hover:bg-gray-100 flex gap-1 items-center';
@@ -20,6 +23,9 @@ const TopBar = () => {
 
   const handleClose = () => setIsOpen(false);
 
+  // redux
+  const cookiesAccepted = useAppSelector(getCookiesAccepted);
+
   // session
   const { data: session } = useSession();
 
@@ -28,15 +34,32 @@ const TopBar = () => {
       <div className='max-w-4xl w-full flex flex-col'>
         <div className='items-center bg-white w-full flex justify-end text-sm border-b z-20 gap-2 p-1'>
           <Link
-            href='/konto'
+            href='/ustawienia'
             className={
               'flex items-center gap-1 py-1 px-2 rounded-sm ' +
-              (pathname.includes('/konto') && 'text-orange-500 bg-gray-100')
-            }
-            onClick={handleClose}>
-            <UserCircleIcon className='w-5 h-5' />
-            Konto
+              (pathname.includes('/ustawienia') &&
+                'text-orange-500 bg-gray-100')
+            }>
+            <HiOutlineCog className='w-5 h-5' />
+            Ustawienia
           </Link>
+          {cookiesAccepted === 'true' ? (
+            <Link
+              href='/konto'
+              className={
+                'flex items-center gap-1 py-1 px-2 rounded-sm ' +
+                (pathname.includes('/konto') && 'text-orange-500 bg-gray-100')
+              }
+              onClick={handleClose}>
+              <UserCircleIcon className='w-5 h-5' />
+              Konto
+            </Link>
+          ) : (
+            <p className='flex items-center gap-1 py-1 px-2 rounded-sm text-gray-300 cursor-not-allowed'>
+              <UserCircleIcon className='w-5 h-5' />
+              Konto
+            </p>
+          )}
           {session && (
             <button
               onClick={() => signOut({ redirect: false })}

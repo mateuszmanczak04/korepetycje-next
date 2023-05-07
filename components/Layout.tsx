@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import TopBar from './TopBar';
 import Footer from './Footer';
+import CookiesConsent from './cookies/CookiesConsent';
 
 type Props = {
   children: ReactNode;
@@ -14,6 +15,7 @@ const Layout = ({ children }: Props) => {
         {children}
       </div>
       <Footer />
+      <CookiesConsent />
     </div>
   );
 };
