@@ -7,11 +7,11 @@ const Kontakt = () => {
     'flex items-center gap-2 p-2 bg-white shadow-lg rounded-md';
 
   return (
-    <div className='flex flex-col gap-4 items-center'>
+    <div className='flex flex-col gap-4'>
       <Head>
         <title>Kontakt - Korepetycje - Mateusz Mańczak</title>
       </Head>
-      <h2 className='text-center'>Kontakt</h2>
+      <h2 className=''>Kontakt</h2>
       <div className={itemClasses}>
         <AiFillPhone className='w-6 h-6' />
         <p>725 726 901</p>

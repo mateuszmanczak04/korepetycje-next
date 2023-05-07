@@ -14,7 +14,7 @@ const persistConfig = {
 
 const reducer = combineReducers({
   settings: settingsReducer,
-  review: reviewReducer,
+  reviews: reviewReducer,
   user: userReducer,
 });
 

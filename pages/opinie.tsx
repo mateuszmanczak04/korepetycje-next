@@ -42,10 +42,11 @@ const Opinie = () => {
     );
 
   return (
-    <div className='flex flex-col items-center w-full gap-8'>
+    <div className='flex flex-col items-center w-full gap-4'>
       <Head>
         <title>Opinie - Korepetycje - Mateusz Mańczak</title>
       </Head>
+      <h2 className='w-full'>Opinie</h2>
       <AddReviewForm />
       <ReviewList />
     </div>
