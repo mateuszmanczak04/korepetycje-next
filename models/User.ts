@@ -15,6 +15,9 @@ const UserSchema = new mongoose.Schema({
   imgUrl: {
     type: String,
   },
+  isAdmin: {
+    type: Boolean,
+  },
 });
 
 export default mongoose.models.User || mongoose.model('User', UserSchema);

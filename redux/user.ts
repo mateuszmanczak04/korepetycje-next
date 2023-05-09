@@ -9,6 +9,7 @@ type InitialState = {
     email: string;
     _id: string;
     imgUrl: string;
+    isAdmin: boolean;
   };
   loading: boolean;
   error: string;
@@ -20,6 +21,7 @@ const initialState: InitialState = {
     email: '',
     _id: '',
     imgUrl: '',
+    isAdmin: false,
   },
   loading: false,
   error: '',
@@ -34,13 +36,14 @@ export const fetchUserData = createAsyncThunk(
         return {};
       }
       const res = await appAxios.get('/api/user/get-data');
-      const { username, _id, email, imgUrl } = res.data.user;
+      const { username, _id, email, imgUrl, isAdmin } = res.data.user;
 
       return {
         username,
         email,
         _id,
         imgUrl,
+        isAdmin,
       };
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.response.data.message);
@@ -136,3 +139,4 @@ export default userSlice.reducer;
 export const getUserData = (state: any) => state.user.user;
 export const getUserLoading = (state: any) => state.user.loading;
 export const getUserError = (state: any) => state.user.error;
+export const getIsAdmin = (state: any) => state.user.user.isAdmin;

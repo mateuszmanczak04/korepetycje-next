@@ -14,6 +14,7 @@ import { HiOutlineCog } from 'react-icons/hi';
 import { signOut, useSession } from 'next-auth/react';
 import { useAppSelector } from '@/redux/store';
 import { getCookiesAccepted } from '@/redux/settings';
+import { getIsAdmin } from '@/redux/user';
 
 const TopBar = () => {
   const linkClasses = 'p-2 rounded hover:bg-gray-100 flex gap-1 items-center';
@@ -25,6 +26,9 @@ const TopBar = () => {
 
   // redux
   const cookiesAccepted = useAppSelector(getCookiesAccepted);
+  const isAdmin = useAppSelector(getIsAdmin);
+
+  console.log('isAdmin', isAdmin);
 
   // session
   const { data: session } = useSession();
@@ -67,6 +71,7 @@ const TopBar = () => {
               Wyloguj
             </button>
           )}
+          {isAdmin && <Link href='/admin'>Admin</Link>}
         </div>
         <button
           className={linkClasses + ' flex justify-center z-20 md:hidden'}

@@ -1,10 +1,10 @@
 import Head from 'next/head';
-import React, { useEffect } from 'react';
-import { signOut, useSession } from 'next-auth/react';
+import React from 'react';
+import {  useSession } from 'next-auth/react';
 import LoginWithGoogle from '@/components/konto/LoginWithGoogle';
 import EditUserData from '@/components/konto/EditUserData';
 import { useAppDispatch, useAppSelector } from '@/redux/store';
-import { fetchUserData, getUserError, getUserLoading } from '@/redux/user';
+import { getUserError, getUserLoading } from '@/redux/user';
 import Loading from '@/components/Loading';
 import Error from '@/components/Error';
 
@@ -16,10 +16,6 @@ const Konto = () => {
   const dispatch = useAppDispatch();
   const loading = useAppSelector(getUserLoading);
   const error = useAppSelector(getUserError);
-
-  useEffect(() => {
-    dispatch(fetchUserData());
-  }, [dispatch]);
 
   if (!session) {
     return (

@@ -21,7 +21,7 @@ export default async function handler(
     await dbConnect();
 
     const user = await User.findById(token._id).select(
-      'username _id email imgUrl'
+      'username _id email imgUrl isAdmin'
     );
 
     return res.status(200).json({ user });

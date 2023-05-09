@@ -22,7 +22,6 @@ export default function App({
             <Head>
               <title>Korepetycje - Mateusz Mańczak</title>
             </Head>
-
             <Component {...pageProps} />
           </Layout>
         </PersistGate>
