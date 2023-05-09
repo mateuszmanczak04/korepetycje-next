@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Rating from './Rating';
+import Rating from '../Rating';
 import { useAppDispatch, useAppSelector } from '@/redux/store';
 import { addReview, getMayAddReview } from '@/redux/review';
 

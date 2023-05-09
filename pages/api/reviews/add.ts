@@ -43,6 +43,7 @@ export default async function handler(
       author: token._id,
       rating,
       createdAt: now,
+      hidden: true,
     });
 
     const populatedReview = await newReview.populate(

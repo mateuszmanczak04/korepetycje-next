@@ -28,8 +28,6 @@ const TopBar = () => {
   const cookiesAccepted = useAppSelector(getCookiesAccepted);
   const isAdmin = useAppSelector(getIsAdmin);
 
-  console.log('isAdmin', isAdmin);
-
   // session
   const { data: session } = useSession();
 

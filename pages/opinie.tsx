@@ -5,11 +5,12 @@ import ReviewList from '@/components/opinie/ReviewList';
 import { useAppDispatch, useAppSelector } from '@/redux/store';
 import {
   checkIfMayAddReview,
-  fetchAllReviews,
+  fetchAllRevealedReviews,
   getReviewsError,
   getReviewsLoading,
 } from '@/redux/review';
 import Error from '@/components/Error';
+import Loading from '@/components/Loading';
 
 const Opinie = () => {
   // redux
@@ -19,7 +20,7 @@ const Opinie = () => {
 
   useEffect(() => {
     dispatch(checkIfMayAddReview());
-    dispatch(fetchAllReviews());
+    dispatch(fetchAllRevealedReviews());
   }, [dispatch]);
 
   if (loading)
@@ -28,7 +29,7 @@ const Opinie = () => {
         <Head>
           <title>Opinie - Korepetycje - Mateusz Mańczak</title>
         </Head>
-        <p className='w-full text-center'>Ładowanie...</p>
+        <Loading size={120} />
       </div>
     );
 

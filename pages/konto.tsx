@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import React from 'react';
-import {  useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import LoginWithGoogle from '@/components/konto/LoginWithGoogle';
 import EditUserData from '@/components/konto/EditUserData';
-import { useAppDispatch, useAppSelector } from '@/redux/store';
+import { useAppSelector } from '@/redux/store';
 import { getUserError, getUserLoading } from '@/redux/user';
 import Loading from '@/components/Loading';
 import Error from '@/components/Error';
@@ -13,25 +13,40 @@ const Konto = () => {
   const { data: session } = useSession();
 
   // redux
-  const dispatch = useAppDispatch();
   const loading = useAppSelector(getUserLoading);
   const error = useAppSelector(getUserError);
 
   if (!session) {
     return (
       <div className='w-full justify-center flex'>
+        <Head>
+          <title>Konto - Korepetycje - Mateusz Mańczak</title>
+        </Head>
         <LoginWithGoogle />
       </div>
     );
   }
 
   if (error) {
-    return <Error>{error}</Error>;
+    return (
+      <>
+        <Head>
+          <title>Konto - Korepetycje - Mateusz Mańczak</title>
+        </Head>
+        <Error>{error}</Error>
+      </>
+    );
   }
 
   if (loading) {
-    // return <p className='w-full text-center'>Ładowanie...</p>;
-    return <Loading />;
+    return (
+      <>
+        <Head>
+          <title>Konto - Korepetycje - Mateusz Mańczak</title>
+        </Head>
+        <Loading size={120} />
+      </>
+    );
   }
 
   return (

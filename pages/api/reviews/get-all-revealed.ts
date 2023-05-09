@@ -1,8 +1,6 @@
 import dbConnect from '@/lib/dbConnect';
 import Review from '@/models/Review';
-import User from '@/models/User';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getToken } from 'next-auth/jwt';
 
 export default async function handler(
   req: NextApiRequest,
@@ -13,25 +11,8 @@ export default async function handler(
   }
 
   try {
-    const token = await getToken({ req });
-
-    if (!token) {
-      return res.status(400).json({ message: 'Brakujący token.' });
-    }
-
     await dbConnect();
-
-    const user = await User.findOne({ _id: token._id }).select('isAdmin');
-
-    console.log(user, user._id, user.isAdmin);
-
-    if (!user.isAdmin) {
-      return res
-        .status(400)
-        .json({ message: 'Tylko administrator może to odczytać.' });
-    }
-
-    const reviews = await Review.find()
+    const reviews = await Review.find({ hidden: false })
       .populate('author', 'username _id email imgUrl')
       .sort({ createdAt: -1 });
 

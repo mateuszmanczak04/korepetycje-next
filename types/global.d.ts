@@ -7,6 +7,7 @@ declare global {
     password?: string;
     _id?: string;
     imgUrl: string;
+    isAdmin: boolean;
   }
 
   interface Review {
@@ -15,5 +16,6 @@ declare global {
     author: User;
     _id: string;
     createdAt: number;
+    hidden?: boolean;
   }
 }

@@ -1,3 +1,4 @@
+import ReviewList from '@/components/admin/ReviewList';
 import { useAppSelector } from '@/redux/store';
 import { getIsAdmin } from '@/redux/user';
 import { useRouter } from 'next/router';
@@ -13,7 +14,12 @@ const Admin = () => {
     router.replace('/');
   }
 
-  return <div>Admin</div>;
+  return (
+    <div className='w-full flex flex-col gap-4'>
+      <h2>Admin</h2>
+      <ReviewList />
+    </div>
+  );
 };
 
 export default Admin;

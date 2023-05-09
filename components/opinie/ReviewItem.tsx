@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import Rating from './Rating';
+import Rating from '../Rating';
 import { getDateSlug } from '@/lib/getDateSlug';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import useOnClickOutside from '@/hooks/useOnClickOutside';

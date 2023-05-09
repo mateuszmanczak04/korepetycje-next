@@ -28,11 +28,11 @@ export const checkIfMayAddReview = createAsyncThunk(
   }
 );
 
-export const fetchAllReviews = createAsyncThunk(
+export const fetchAllRevealedReviews = createAsyncThunk(
   '/reviews/fetch-all-reviews',
   async (_, thunkAPI: any) => {
     try {
-      const res = await appAxios.get('/api/reviews/get-all');
+      const res = await appAxios.get('/api/reviews/get-all-revealed');
       return res.data.reviews;
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.response.data.message);
@@ -84,16 +84,16 @@ const reviewSlice = createSlice({
     builder.addCase(checkIfMayAddReview.rejected, (state, action) => {
       state.loading = false;
     });
-    builder.addCase(fetchAllReviews.pending, (state) => {
+    builder.addCase(fetchAllRevealedReviews.pending, (state) => {
       state.loading = true;
       state.error = '';
     });
-    builder.addCase(fetchAllReviews.fulfilled, (state, action) => {
+    builder.addCase(fetchAllRevealedReviews.fulfilled, (state, action) => {
       state.reviews = action.payload;
       state.loading = false;
       state.error = '';
     });
-    builder.addCase(fetchAllReviews.rejected, (state, action) => {
+    builder.addCase(fetchAllRevealedReviews.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload as string;
     });

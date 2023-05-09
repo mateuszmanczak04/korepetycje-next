@@ -4,6 +4,7 @@ import { signIn } from 'next-auth/react';
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 import LoginWithGoogle from './LoginWithGoogle';
 import Error from '../Error';
+import Loading from '../Loading';
 
 type Props = {
   setOption: (option: '' | 'login' | 'register') => void;
@@ -102,7 +103,7 @@ const RegisterForm = ({ setOption }: Props) => {
           disabled={loading}>
           Chcę się tylko zalogować
         </button>
-        {loading && <p className='text-sm'>Rejestracja w toku...</p>}
+        {loading && <Loading size={120} />}
         {error && <Error>{error}</Error>}
       </form>
     </div>

@@ -8,7 +8,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (req.method !== 'GET') {
+  if (req.method !== 'PUT') {
     return res.status(400).json({ message: 'Nieodpowiednia metoda.' });
   }
 
@@ -16,27 +16,36 @@ export default async function handler(
     const token = await getToken({ req });
 
     if (!token) {
-      return res.status(400).json({ message: 'Brakujący token.' });
+      return res.status(400).json({ message: 'Niepoprawny token.' });
     }
 
     await dbConnect();
 
     const user = await User.findOne({ _id: token._id }).select('isAdmin');
 
-    console.log(user, user._id, user.isAdmin);
-
     if (!user.isAdmin) {
       return res
         .status(400)
-        .json({ message: 'Tylko administrator może to odczytać.' });
+        .json({ message: 'Tylko administrator może to zrobić.' });
     }
 
-    const reviews = await Review.find()
-      .populate('author', 'username _id email imgUrl')
-      .sort({ createdAt: -1 });
+    const { reviewId } = req.body;
 
-    return res.status(200).json({ reviews });
+    if (!reviewId) {
+      return res.status(400).json({ message: 'Brak _id opinii.' });
+    }
+
+    const reviewExists = await Review.exists({ _id: reviewId });
+
+    if (!reviewExists) {
+      return res.status(400).json({ message: 'Opinia nie istnieje.' });
+    }
+
+    await Review.updateOne({ _id: reviewId }, { hidden: true });
+
+    return res.status(200).end();
   } catch (err) {
+    console.log(err);
     return res.status(500).json({ message: 'Błąd serwera.' });
   }
 }
