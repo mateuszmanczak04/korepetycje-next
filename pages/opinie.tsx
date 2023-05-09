@@ -9,6 +9,7 @@ import {
   getReviewsError,
   getReviewsLoading,
 } from '@/redux/review';
+import Error from '@/components/Error';
 
 const Opinie = () => {
   // redux
@@ -37,7 +38,7 @@ const Opinie = () => {
         <Head>
           <title>Opinie - Korepetycje - Mateusz Mańczak</title>
         </Head>
-        <p className='text-red-500 w-full text-center'>{error}</p>
+        <Error>{error}</Error>
       </div>
     );
 

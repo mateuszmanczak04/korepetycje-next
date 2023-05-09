@@ -39,13 +39,15 @@ const ChangeProfilePicture = () => {
       <p>Zmień zdjęcie profilowe</p>
 
       <label className='cursor-pointer rounded-md overflow-hidden flex gap-1 '>
-        <Image
-          src={imgUrl}
-          alt='current image'
-          width={300}
-          height={300}
-          className='aspect-square w-40 h-40 object-cover'
-        />
+        {imgUrl && (
+          <Image
+            src={imgUrl}
+            alt='current image'
+            width={300}
+            height={300}
+            className='aspect-square w-40 h-40 object-cover'
+          />
+        )}
         <input
           type='file'
           className='hidden'

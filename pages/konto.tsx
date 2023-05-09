@@ -5,6 +5,8 @@ import LoginWithGoogle from '@/components/konto/LoginWithGoogle';
 import EditUserData from '@/components/konto/EditUserData';
 import { useAppDispatch, useAppSelector } from '@/redux/store';
 import { fetchUserData, getUserError, getUserLoading } from '@/redux/user';
+import Loading from '@/components/Loading';
+import Error from '@/components/Error';
 
 const Konto = () => {
   // session
@@ -28,11 +30,12 @@ const Konto = () => {
   }
 
   if (error) {
-    return <p className='text-red-500 w-full text-center'>{error}</p>;
+    return <Error>{error}</Error>;
   }
 
   if (loading) {
-    return <p className='w-full text-center'>Ładowanie...</p>;
+    // return <p className='w-full text-center'>Ładowanie...</p>;
+    return <Loading />;
   }
 
   return (

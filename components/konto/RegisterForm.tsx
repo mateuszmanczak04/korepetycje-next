@@ -3,6 +3,7 @@ import appAxios from '../../lib/appAxios';
 import { signIn } from 'next-auth/react';
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 import LoginWithGoogle from './LoginWithGoogle';
+import Error from '../Error';
 
 type Props = {
   setOption: (option: '' | 'login' | 'register') => void;
@@ -102,7 +103,7 @@ const RegisterForm = ({ setOption }: Props) => {
           Chcę się tylko zalogować
         </button>
         {loading && <p className='text-sm'>Rejestracja w toku...</p>}
-        {error && <p className='text-sm text-red-500'>{error}</p>}
+        {error && <Error>{error}</Error>}
       </form>
     </div>
   );

@@ -19,8 +19,6 @@ const CookiesConsent = () => {
     }
   };
 
-  console.log(cookiesAccepted);
-
   return (
     <div
       className='gap-2 p-4 shadow-md rounded-md cursor-pointer flex items-center justify-between'

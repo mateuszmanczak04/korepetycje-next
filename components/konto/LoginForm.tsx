@@ -2,6 +2,7 @@ import React, { FormEvent, useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 import LoginWithGoogle from './LoginWithGoogle';
+import Error from '../Error';
 
 type Props = {
   setOption: (option: '' | 'login' | 'register') => void;
@@ -73,7 +74,7 @@ const LoginForm = ({ setOption }: Props) => {
           Chcę utworzyć konto
         </button>
         {loading && <p className='text-sm'>Logowanie w toku...</p>}
-        {error && <p className='text-sm text-red-500'>{error}</p>}
+        {error && <Error>{error}</Error>}
       </form>
     </div>
   );
