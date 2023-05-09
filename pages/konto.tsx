@@ -39,10 +39,11 @@ const Konto = () => {
   }
 
   return (
-    <div>
+    <div className='w-full flex flex-col gap-4'>
       <Head>
         <title>Konto - Korepetycje - Mateusz Mańczak</title>
       </Head>
+      <h2>Konto</h2>
       <EditUserData />
     </div>
   );
