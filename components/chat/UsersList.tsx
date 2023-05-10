@@ -16,7 +16,7 @@ const UsersList = () => {
   }, []);
 
   return (
-    <div className='flex flex-col bg-white border-l w-60 lg:w-80 h-screen overflow-y-scroll scrollbar-hide'>
+    <div className='flex flex-col bg-white border-l w-full h-screen overflow-y-scroll scrollbar-hide'>
       {users &&
         users.map((user) => (
           <Link

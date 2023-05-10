@@ -65,7 +65,7 @@ const MessagesList = () => {
 
   return (
     <div className='flex flex-col gap-10 p-8 rounded-md flex-1 overflow-y-scroll scrollbar-hide w-full max-w-4xl m-auto'>
-      {messages.map((message) => {
+      {/* {messages.map((message) => {
         if (message.sender === 'me') {
           return (
             <div
@@ -82,7 +82,8 @@ const MessagesList = () => {
             {message.content}
           </div>
         );
-      })}
+      })} */}
+      <p className='text-gray-500'>Strona w budowie</p>
     </div>
   );
 };

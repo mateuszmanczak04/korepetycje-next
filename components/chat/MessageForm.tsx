@@ -3,12 +3,10 @@ import React, { useState } from 'react';
 const MessageForm = () => {
   const [content, setContent] = useState('');
 
-  const handleSubmit = () => {
-    
-  }
+  const handleSubmit = () => {};
 
   return (
-    <div className='w-full p-4 bg-orange-100 gap-2 shadow-xl'>
+    <div className='w-full p-4 bg-white gap-2 shadow-xl'>
       <form className='flex items-center w-full max-w-4xl m-auto gap-2'>
         <input
           type='text'

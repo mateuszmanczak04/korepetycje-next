@@ -21,7 +21,7 @@ const ChatTopBar = ({ imgUrl, username }: Props) => {
         />
         <p>{username}</p>
       </div>
-      <Link href='/chat' className='hidden md:block lg:hidden'>
+      <Link href='/chat' className='block md:hidden'>
         <BsArrowCounterclockwise className='w-6 h-6' />
       </Link>
     </div>

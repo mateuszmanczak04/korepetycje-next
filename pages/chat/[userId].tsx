@@ -13,6 +13,7 @@ const Chat = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const router = useRouter();
+  const [chat, setChat] = useState<{ users: User[]; _id: string } | null>(null);
 
   useEffect(() => {
     setError('');
@@ -27,6 +28,8 @@ const Chat = () => {
         setLoading(false);
         setError(err.response.data.message);
       });
+
+    appAxios.get(`/`);
   }, [router]);
 
   if (error) {
@@ -48,7 +51,9 @@ const Chat = () => {
           <MessagesList />
           <MessageForm />
         </div>
-        <UsersList />
+        <div className='hidden md:flex w-60 lg:w-80'>
+          <UsersList />
+        </div>
       </div>
     );
 

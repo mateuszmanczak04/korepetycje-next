@@ -7,10 +7,12 @@ import React from 'react';
 const Chat = () => {
   return (
     <div className='w-full h-full flex mt-12 md:mt-0 md:ml-60 lg:ml-80'>
-      <div className='flex flex-1 flex-col h-screen justify-center items-center'>
+      <div className='hidden sm:flex flex-1 flex-col h-screen justify-center items-center'>
         <p className='text-gray-600 text-lg'>Wybierz chat, aby pisać</p>
       </div>
-      <UsersList />
+      <div className='w-full sm:w-60 md:w-80'>
+        <UsersList />
+      </div>
     </div>
   );
 };
