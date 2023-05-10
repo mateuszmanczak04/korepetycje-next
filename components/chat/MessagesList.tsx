@@ -35,20 +35,20 @@ const messages = [
     sender: 'me',
     content: 'Ja również mam taką nadzieję, jaki jest cennik?',
   },
-  { _id: '1', sender: 'Mateusz', content: 'Hej, co tam u ciebie słychać?' },
+  { _id: '9', sender: 'Mateusz', content: 'Hej, co tam u ciebie słychać?' },
   {
-    _id: '9',
+    _id: '10',
     sender: 'me',
     content: 'Bardzo dobrze, jestem zainteresowany lekcjami matematyki.',
   },
   {
-    _id: '10',
+    _id: '11',
     sender: 'Mateusz',
     content:
       'Korepetycji udzielam od wielu miesięcy i pod swoimi skrzydłami miałem wielu zadowolonych klientów. Mam nadzieję, że będziesz kolejnym.',
   },
   {
-    _id: '11',
+    _id: '12',
     sender: 'me',
     content: 'Ja również mam taką nadzieję, jaki jest cennik?',
   },
@@ -70,7 +70,7 @@ const MessagesList = () => {
           return (
             <div
               key={message._id}
-              className='bg-orange-500 text-white w-fit ml-auto p-2 rounded-lg shadow'>
+              className='bg-orange-500 text-white w-fit ml-auto p-2 rounded-lg shadow max-w-[400px]'>
               {message.content}
             </div>
           );
@@ -78,7 +78,7 @@ const MessagesList = () => {
         return (
           <div
             key={message._id}
-            className='bg-white text-gray-900 w-fit mr-auto p-2 rounded-lg shadow'>
+            className='bg-white text-gray-900 w-fit mr-auto p-2 rounded-lg shadow max-w-[400px]'>
             {message.content}
           </div>
         );
