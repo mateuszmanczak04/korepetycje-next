@@ -11,7 +11,8 @@ import {
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
 import { HiOutlineCog } from 'react-icons/hi';
-import { signOut, useSession } from 'next-auth/react';
+import { CgDanger } from 'react-icons/cg';
+import { AiOutlineMessage } from 'react-icons/ai';
 import { useAppSelector } from '@/redux/store';
 import { getCookiesAccepted } from '@/redux/settings';
 import { getIsAdmin } from '@/redux/user';
@@ -28,9 +29,6 @@ const TopBar = () => {
   // redux
   const cookiesAccepted = useAppSelector(getCookiesAccepted);
   const isAdmin = useAppSelector(getIsAdmin);
-
-  // session
-  const { data: session } = useSession();
 
   return (
     <div className='fixed top-0 left-0 w-full md:w-60 lg:w-80 md:h-full border-b md:border-r md:border-b-0 flex justify-center z-50 overflow-hidden flex-col'>
@@ -77,6 +75,17 @@ const TopBar = () => {
           onClick={handleClose}>
           <PhoneIcon className='w-5 h-5' />
           Kontakt
+        </Link>
+        <Link
+          href='/chat'
+          className={
+            linkClasses +
+            ' ' +
+            (pathname.includes('/chat') && activeLinkClasses)
+          }
+          onClick={handleClose}>
+          <AiOutlineMessage className='w-5 h-5' />
+          Chat
         </Link>
         <Link
           href='/sklep'
@@ -133,7 +142,7 @@ const TopBar = () => {
               linkClasses + (pathname.includes('/admin') && activeLinkClasses)
             }
             onClick={handleClose}>
-            <HiOutlineCog className='w-5 h-5' />
+            <CgDanger className='w-5 h-5' />
             Admin
           </Link>
         )}

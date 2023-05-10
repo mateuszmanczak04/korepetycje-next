@@ -4,7 +4,6 @@ import Footer from './Footer';
 import CookiesConsent from './cookies/CookiesConsent';
 import { useAppDispatch } from '@/redux/store';
 import { fetchUserData } from '@/redux/user';
-import ChatModal from './chat/ChatModal';
 
 type Props = {
   children: ReactNode;

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Rating from '../Rating';
 import { getDateSlug } from '@/lib/getDateSlug';
 

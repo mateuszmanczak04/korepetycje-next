@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import appAxios from '../../lib/appAxios';
-import { useAppSelector } from '@/redux/store';
-import { getReviews } from '@/redux/review';
 import ReviewItem from './ReviewItem';
 
 const ReviewList = () => {
