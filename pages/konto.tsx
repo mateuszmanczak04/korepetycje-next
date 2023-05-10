@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import LoginWithGoogle from '@/components/konto/LoginWithGoogle';
 import EditUserData from '@/components/konto/EditUserData';
 import { useAppSelector } from '@/redux/store';
@@ -56,6 +56,13 @@ const Konto = () => {
       </Head>
       <h2>Konto</h2>
       <EditUserData />
+      {session && (
+        <button
+          onClick={() => signOut({ redirect: false })}
+          className='text-orange-500 bg-orange-100 rounded px-2 py-1 hover:bg-orange-200 transition'>
+          Wyloguj
+        </button>
+      )}
     </div>
   );
 };
