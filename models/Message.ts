@@ -4,7 +4,7 @@ const MessageSchema = new mongoose.Schema({
   content: {
     type: String,
   },
-  author: {
+  sender: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
@@ -12,7 +12,7 @@ const MessageSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Chat',
   },
-  time: {
+  timestamp: {
     type: Number,
     default: Date.now(),
   },

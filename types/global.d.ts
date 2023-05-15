@@ -18,4 +18,8 @@ declare global {
     createdAt: number;
     hidden?: boolean;
   }
+
+  interface CustomGetTokenResult extends GetTokenResult {
+    _id: string;
+  }
 }

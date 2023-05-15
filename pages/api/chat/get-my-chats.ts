@@ -9,30 +9,36 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (req.method !== 'POST') {
+  if (req.method !== 'GET') {
     return res.status(400).end();
   }
 
   try {
-    const token = await getToken({ req });
+    const token: any = await getToken({ req });
 
     if (!token) {
       return res.status(400).json({ message: 'Brakujący token.' });
     }
 
-    const { _id } = req.body;
-
-    if (!_id) {
-      return res
-        .status(400)
-        .json({ message: 'Podaj _id użytkownika do chatu.' });
-    }
-
     await dbConnect();
 
-    const chat = await Chat.create({ users: [token._id, _id] });
+    const meInChats = await UserInChat.find({ user: token._id });
 
-    return res.status(200).json({ chat });
+    let chats: any[] = [];
+
+    await Promise.all(
+      meInChats.map(async (meInChat) => {
+        const chat = await Chat.findById(meInChat.chat);
+        chats.push(chat);
+        chats = chats.sort((a, b) =>
+          a.lastMessageTimestamp > b.lastMessageTimestamp ? 1 : -1
+        );
+      })
+    );
+
+    // TODO add names to chats
+
+    return res.status(200).json({ chats });
   } catch (err) {
     return res.status(500).json({ message: 'Błąd serwera.' });
   }

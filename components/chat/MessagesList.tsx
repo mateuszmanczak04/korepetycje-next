@@ -1,60 +1,15 @@
-import React, { useEffect } from 'react';
-
-const messages = [
-  { _id: '1', sender: 'Mateusz', content: 'Hej, co tam u ciebie słychać?' },
-  {
-    _id: '2',
-    sender: 'me',
-    content: 'Bardzo dobrze, jestem zainteresowany lekcjami matematyki.',
-  },
-  {
-    _id: '3',
-    sender: 'Mateusz',
-    content:
-      'Korepetycji udzielam od wielu miesięcy i pod swoimi skrzydłami miałem wielu zadowolonych klientów. Mam nadzieję, że będziesz kolejnym.',
-  },
-  {
-    _id: '4',
-    sender: 'me',
-    content: 'Ja również mam taką nadzieję, jaki jest cennik?',
-  },
-  { _id: '5', sender: 'Mateusz', content: 'Hej, co tam u ciebie słychać?' },
-  {
-    _id: '6',
-    sender: 'me',
-    content: 'Bardzo dobrze, jestem zainteresowany lekcjami matematyki.',
-  },
-  {
-    _id: '7',
-    sender: 'Mateusz',
-    content:
-      'Korepetycji udzielam od wielu miesięcy i pod swoimi skrzydłami miałem wielu zadowolonych klientów. Mam nadzieję, że będziesz kolejnym.',
-  },
-  {
-    _id: '8',
-    sender: 'me',
-    content: 'Ja również mam taką nadzieję, jaki jest cennik?',
-  },
-  { _id: '9', sender: 'Mateusz', content: 'Hej, co tam u ciebie słychać?' },
-  {
-    _id: '10',
-    sender: 'me',
-    content: 'Bardzo dobrze, jestem zainteresowany lekcjami matematyki.',
-  },
-  {
-    _id: '11',
-    sender: 'Mateusz',
-    content:
-      'Korepetycji udzielam od wielu miesięcy i pod swoimi skrzydłami miałem wielu zadowolonych klientów. Mam nadzieję, że będziesz kolejnym.',
-  },
-  {
-    _id: '12',
-    sender: 'me',
-    content: 'Ja również mam taką nadzieję, jaki jest cennik?',
-  },
-];
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
+import appAxios from '../../lib/appAxios';
+import { useSession } from 'next-auth/react';
 
 const MessagesList = () => {
+  const router = useRouter();
+  const [messages, setMessages] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const { data: session } = useSession();
+
   useEffect(() => {
     document.body.classList.add('overflow-y-hidden');
 
@@ -63,10 +18,24 @@ const MessagesList = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setLoading(true);
+    appAxios
+      .get(`/api/chat/get-chat-messages/${router.query._id}`)
+      .then((res) => {
+        setMessages(res.data.messages);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.response.data.message);
+        setLoading(false);
+      });
+  }, [router]);
+
   return (
-    <div className='flex flex-col gap-10 p-8 rounded-md flex-1 overflow-y-scroll scrollbar-hide w-full max-w-4xl m-auto'>
-      {/* {messages.map((message) => {
-        if (message.sender === 'me') {
+    <div className='flex flex-col gap-1 p-8 rounded-md flex-1 overflow-y-scroll scrollbar-hide w-full max-w-4xl m-auto'>
+      {messages.map((message) => {
+        if (message.sender === session?.user._id) {
           return (
             <div
               key={message._id}
@@ -82,8 +51,7 @@ const MessagesList = () => {
             {message.content}
           </div>
         );
-      })} */}
-      <p className='text-gray-500'>Strona w budowie</p>
+      })}
     </div>
   );
 };

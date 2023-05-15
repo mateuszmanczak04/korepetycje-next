@@ -1,5 +1,8 @@
 import dbConnect from '@/lib/dbConnect';
 import Chat from '@/models/Chat';
+import Message from '@/models/Message';
+import User from '@/models/User';
+import UserInChat from '@/models/UserInChat';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getToken } from 'next-auth/jwt';
 
@@ -7,7 +10,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (req.method !== 'GET') {
+  if (req.method !== 'POST') {
     return res.status(400).end();
   }
 
@@ -18,19 +21,24 @@ export default async function handler(
       return res.status(400).json({ message: 'Brakujący token.' });
     }
 
-    const { userId } = req.query;
+    const { content, chatId } = req.body;
 
-    if (!userId) {
+    if (!content || !chatId) {
       return res
         .status(400)
-        .json({ message: 'Podaj _id użytkownika z chatu.' });
+        .json({ message: 'Brakująca treść lub _id chatu.' });
     }
 
     await dbConnect();
 
-    const chat = await Chat.find({ users: { $in: [userId, token._id] } });
+    const message = await Message.create({
+      sender: token._id,
+      chat: chatId,
+      content: content,
+      timestamp: Date.now(),
+    });
 
-    return res.status(200).json({ chat });
+    return res.status(200).json({ message });
   } catch (err) {
     return res.status(500).json({ message: 'Błąd serwera.' });
   }

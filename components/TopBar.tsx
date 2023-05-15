@@ -76,7 +76,7 @@ const TopBar = () => {
           <PhoneIcon className='w-5 h-5' />
           Kontakt
         </Link>
-        <Link
+        {/* <Link
           href='/chat'
           className={
             linkClasses +
@@ -86,8 +86,8 @@ const TopBar = () => {
           onClick={handleClose}>
           <AiOutlineMessage className='w-5 h-5' />
           Chat
-        </Link>
-        <Link
+        </Link> */}
+        {/* <Link
           href='/sklep'
           className={
             linkClasses +
@@ -97,8 +97,8 @@ const TopBar = () => {
           onClick={handleClose}>
           <BuildingStorefrontIcon className='w-5 h-5' />
           Sklep
-        </Link>
-        <Link
+        </Link> */}
+        {/* <Link
           href='/strony-internetowe'
           className={
             linkClasses +
@@ -108,7 +108,7 @@ const TopBar = () => {
           onClick={handleClose}>
           <GlobeAltIcon className='w-5 h-5' />
           Strony internetowe
-        </Link>
+        </Link> */}
         <Link
           href='/ustawienia'
           className={

@@ -23,8 +23,6 @@ export default async function handler(
 
     const user = await User.findOne({ _id: token._id }).select('isAdmin');
 
-    console.log(user, user._id, user.isAdmin);
-
     if (!user.isAdmin) {
       return res
         .status(400)

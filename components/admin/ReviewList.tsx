@@ -9,12 +9,9 @@ const ReviewList = () => {
     appAxios
       .get('/api/reviews/get-all')
       .then((res) => {
-        console.log(res);
         setReviews(res.data.reviews);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch();
   }, []);
 
   return (
