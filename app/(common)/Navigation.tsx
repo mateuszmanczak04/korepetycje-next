@@ -114,7 +114,7 @@ const Navigation = () => {
             Konto
           </Link>
         ) : (
-          <p className='flex items-center gap-1 py-1 px-2 rounded-sm text-gray-300 cursor-not-allowed'>
+          <p className='flex items-center gap-1 p-4 rounded-sm text-gray-300 cursor-not-allowed'>
             <UserCircleIcon className='w-5 h-5' />
             Konto
           </p>
