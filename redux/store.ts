@@ -1,6 +1,7 @@
+'use client';
+
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import reviewReducer from './review';
 import userReducer from './user';
 import settingsReducer from './settings';
 import storage from 'redux-persist/lib/storage';
@@ -14,7 +15,6 @@ const persistConfig = {
 
 const reducer = combineReducers({
   settings: settingsReducer,
-  reviews: reviewReducer,
   user: userReducer,
 });
 

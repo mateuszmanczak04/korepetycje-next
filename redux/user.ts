@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import appAxios from '../lib/appAxios';
-import { getSession } from 'next-auth/react';
+import appAxios from '@/lib/appAxios';
+import { getSession, signOut } from 'next-auth/react';
 import axios from 'axios';
 
 type InitialState = {
@@ -91,7 +91,18 @@ export const changeProfilePicture = createAsyncThunk(
 const userSlice = createSlice({
   name: 'User',
   initialState,
-  reducers: {},
+  reducers: {
+    logout: (state) => {
+      state.user = {
+        username: '',
+        email: '',
+        _id: '',
+        imgUrl: '',
+        isAdmin: false,
+      };
+      signOut();
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchUserData.pending, (state) => {
       state.loading = true;
@@ -140,3 +151,4 @@ export const getUserData = (state: any) => state.user.user;
 export const getUserLoading = (state: any) => state.user.loading;
 export const getUserError = (state: any) => state.user.error;
 export const getIsAdmin = (state: any) => state.user.user.isAdmin;
+export const { logout } = userSlice.actions;

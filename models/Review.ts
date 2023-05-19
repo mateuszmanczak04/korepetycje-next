@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+import mongoose, { Model } from 'mongoose';
 
-const ReviewSchema = new mongoose.Schema({
+const ReviewSchema = new mongoose.Schema<Review>({
   title: {
     type: String,
   },
@@ -22,4 +22,7 @@ const ReviewSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.models.Review || mongoose.model('Review', ReviewSchema);
+const ReviewModel: Model<Review> =
+  mongoose.models.Review || mongoose.model<Review>('Review', ReviewSchema);
+
+export default ReviewModel;

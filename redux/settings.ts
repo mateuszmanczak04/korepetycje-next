@@ -5,7 +5,7 @@ type InitialState = {
   cookiesAccepted: string;
 };
 
-const initialState = {
+const initialState: InitialState = {
   cookiesAccepted: '',
 };
 
@@ -18,7 +18,7 @@ const settingsSlice = createSlice({
     },
     declineCookies: (state) => {
       state.cookiesAccepted = 'false';
-      signOut({ redirect: false });
+      signOut();
     },
   },
 });
