@@ -6,8 +6,8 @@ declare global {
     username?: string;
     password?: string;
     _id?: string;
-    imgUrl: string;
-    isAdmin: boolean;
+    imgUrl?: string;
+    isAdmin?: boolean;
   }
 
   interface Review {
@@ -19,7 +19,18 @@ declare global {
     hidden?: boolean;
   }
 
-  interface CustomGetTokenResult extends GetTokenResult {
+  interface Message {
     _id: string;
+    content: string;
+    sender: string | mongoose.Schema.Types.ObjectId;
+    chat: string | mongoose.Schema.Types.ObjectId;
+    timestamp: number;
+  }
+
+  interface Chat {
+    _id: string;
+    name?: string;
+    images?: string[];
+    members: User[] | mongoose.Schema.Types.ObjectId[] | string[];
   }
 }

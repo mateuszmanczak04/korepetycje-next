@@ -17,7 +17,7 @@ export async function DELETE(
       return NextResponse.json({ message: 'Niepoprawny token.' });
     }
 
-    dbConnect();
+    await dbConnect();
 
     const review = await Review.findOne({ _id });
 

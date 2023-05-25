@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+import mongoose, { Model } from 'mongoose';
 
-const MessageSchema = new mongoose.Schema({
+const MessageSchema = new mongoose.Schema<Message>({
   content: {
     type: String,
   },
@@ -18,5 +18,7 @@ const MessageSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.models.Message ||
-  mongoose.model('Message', MessageSchema);
+const MessageModel: Model<Message> =
+  mongoose.models.Message || mongoose.model<Message>('Message', MessageSchema);
+
+export default MessageModel;

@@ -1,9 +1,7 @@
-import Navigation from './(common)/Navigation';
-import Footer from './(common)/Footer';
-import CookiesConsent from './(common)/CookiesConsent';
+import Navigation from './Navigation';
 import { Metadata } from 'next';
 import '../styles/globals.scss';
-import { Providers } from '@/app/provider';
+import { Providers } from '@/app/(commonComponents)/provider';
 
 export const metadata: Metadata = {
   title: 'Korepetycje - Mateusz Mańczak',
@@ -15,19 +13,15 @@ type Props = {
   children: React.ReactNode;
 };
 
-const layout = ({ children }: Props) => {
+const RootLayout = ({ children }: Props) => {
   return (
     <html lang='pl'>
       <head />
       <body className='w-screen flex flex-col md:flex-row md:items-start items-center gap-8'>
         <Providers>
           <Navigation />
-          <div className='flex-col flex gap-8 w-full items-center md:ml-60 lg:ml-80'>
-            <div className='flex-1 min-h-screen w-full max-w-3xl px-4 py-16 md:py-8'>
-              {children}
-            </div>
-            <CookiesConsent />
-            <Footer />
+          <div className='flex-col flex gap-8 w-full items-center lg:ml-60 xl:ml-80 mt-12 lg:mt-0'>
+            {children}
           </div>
         </Providers>
       </body>
@@ -35,4 +29,4 @@ const layout = ({ children }: Props) => {
   );
 };
 
-export default layout;
+export default RootLayout;

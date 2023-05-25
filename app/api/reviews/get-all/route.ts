@@ -15,6 +15,10 @@ export async function GET(request: NextRequest) {
     await dbConnect();
     const user = await User.findOne({ _id: token._id }).select('isAdmin');
 
+    if (!user) {
+      return NextResponse.json({ message: 'Nie znaleziono użytkownika.' });
+    }
+
     if (!user.isAdmin) {
       return NextResponse.json({
         message: 'Tylko administrator może to odczytać.',

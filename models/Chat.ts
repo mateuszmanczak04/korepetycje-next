@@ -1,9 +1,15 @@
-import mongoose from 'mongoose';
+import mongoose, { Model } from 'mongoose';
 
-const ChatSchema = new mongoose.Schema({
-  lastMessageTimestamp: {
-    type: Number,
-  },
+const ChatSchema = new mongoose.Schema<Chat>({
+  members: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+    },
+  ],
 });
 
-export default mongoose.models.Chat || mongoose.model('Chat', ChatSchema);
+const ChatModel: Model<Chat> =
+  mongoose?.models?.Chat || mongoose.model<Chat>('Chat', ChatSchema);
+
+export default ChatModel;
