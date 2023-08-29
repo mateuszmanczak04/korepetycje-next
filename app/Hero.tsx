@@ -10,8 +10,8 @@ const Hero = () => {
       <Image
         src='/me.jpg'
         alt='me'
-        width={1200}
-        height={1200}
+        width={500}
+        height={500}
         className='w-full max-w-lg aspect-square object-cover object-top rounded-full border-12 border-orange-400'
       />
       <div className='flex flex-col py-4'>
