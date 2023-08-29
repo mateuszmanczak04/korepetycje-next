@@ -5,8 +5,7 @@ const Level = () => {
     <section className='flex flex-col gap-2'>
       <h3 className='bg-orange-300'>Poziom</h3>
       <ListItem text='Cała szkoła podstawowa' />
-      <ListItem text='Całe liceum - podstawa' />
-      <ListItem text='1. i 2. klasa liceum - rozszerzenie' />
+      <ListItem text='Cała szkoła średnia - podstawa i rozszerzenie' />
     </section>
   );
 };

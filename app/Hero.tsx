@@ -18,18 +18,22 @@ const Hero = () => {
         <h3 className='bg-orange-300'>Pozwól mi się przedstawić.</h3>
         <br />
         <p className='text-justify'>
-          Jak już pewnie zdążyłeś się domyślić, mam na imię Mateusz i mieszkam w
-          Koninie.
+          Mam na imię Mateusz i niedawno przeprowadziłem się na studia do
+          Poznania.
           <br />
           <br />
           W tym roku ukończyłem II Liceum w Koninie, a dokładniej klasę o
           profilu mat-fiz-ang. Los tak chciał, że już od najmłodszych lat
           interesowałem się matematyką i byłem w tym dobry, a pod koniec 2021
-          roku zacząłem dzielić się wiedzą za pomocą korepetycji.
+          roku zacząłem dzielić się wiedzą z innymi za pomocą korepetycji.
+          <br />
+          <br />
+          Aby potwierdzi moje kompetencje, dodam, że z matury z matematyki na
+          poziomie podstawowym dostałem 100%, a z rozszerzenia 92%.
           <br />
           <br />
           Mam nadzieję, że po przeczytaniu treści na tej stronie zdecydujesz się
-          podjąć ze mną współpracę i poprawić swoje umiejętności matematyczne.
+          podjąć ze mną współpracę i poszerzyć swoją wiedzę.
         </p>
       </div>
     </section>

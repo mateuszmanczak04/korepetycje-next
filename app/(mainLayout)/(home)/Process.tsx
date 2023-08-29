@@ -25,7 +25,7 @@ const Process = () => {
         zapisze, tego mózg nie będzie wiedział&rdquo;.
       </p>
       <p>
-        Inaczej mają się zajęcia w formie zdalnej, które preferuję osobom,
+        Podobnie mają się zajęcia w formie zdalnej, które preferuję osobom,
         chcącym opanować aktualny materiał, a nie nadrabiać zaległości, których
         przez internet niestety tak łatwo nie zobaczę.
       </p>
