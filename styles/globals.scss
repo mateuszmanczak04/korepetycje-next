@@ -5,23 +5,19 @@
 @tailwind utilities;
 
 body {
-  @apply font-body;
-}
-
-h1 {
-  @apply text-5xl sm:text-6xl font-extrabold;
+  @apply font-body text-primary-950;
 }
 
 h2 {
-  @apply text-3xl sm:text-4xl font-bold w-fit;
+  @apply text-3xl sm:text-4xl font-bold w-fit text-primary-800;
 }
 
-h3 {
-  @apply text-2xl sm:text-3xl font-bold w-fit;
+p {
+  @apply leading-7;
 }
 
 .btn-primary {
-  @apply bg-orange-500 text-white py-1 px-2 rounded w-fit shadow-sm transition;
+  @apply bg-primary-500 text-white py-2 px-3 rounded w-fit shadow-sm transition inline-flex items-center gap-1;
 
   &:hover {
     @apply bg-opacity-80 shadow-md;
@@ -29,19 +25,9 @@ h3 {
 }
 
 .btn-secondary {
-  @apply text-orange-500 border-orange-500 bg-orange-100 py-1 px-2 rounded w-fit shadow-sm transition;
+  @apply text-primary-500 border-primary-500 bg-primary-100 py-2 px-3 rounded w-fit shadow-sm transition inline-flex items-center gap-1;
 
   &:hover {
     @apply bg-opacity-80 shadow-md;
-  }
-}
-
-input[type='email'],
-input[type='text'],
-input[type='password'] {
-  @apply py-1 px-2 rounded-md w-full border outline-none;
-
-  &:focus {
-    @apply border-2 border-orange-500;
   }
 }
