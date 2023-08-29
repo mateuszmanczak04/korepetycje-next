@@ -3,9 +3,9 @@ type Props = { text: string; smallText?: string };
 const ListItem = ({ text, smallText }: Props) => {
   return (
     <div className='flex flex-col'>
-      <div className='flex items-center gap-1'>
+      <div className='flex gap-1'>
         <svg
-          className='bg-primary-500 rounded w-4 h-4 text-white'
+          className='bg-primary-500 rounded w-4 h-4 shrink-0 mt-1 text-white'
           fill='none'
           stroke='currentColor'
           strokeWidth='3'

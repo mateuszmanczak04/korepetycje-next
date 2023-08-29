@@ -27,8 +27,8 @@ const Hero = () => {
           Adama Mickiewicza w Poznaniu, kierunek to Informatyka.
           <br />
           <br />
-          W tym roku ukończyłem II Liceum w Koninie, a dokładniej klasę o
-          profilu z rozszerzoną matematyką, fizyką i językiem angielskim. Los
+          Kilka miesięcy temu ukończyłem II Liceum w Koninie, a dokładniej klasę
+          o profilu z rozszerzoną matematyką, fizyką i językiem angielskim. Los
           tak chciał, że już od najmłodszych lat interesowałem się matematyką i
           byłem w tym dobry, a pod koniec 2021 roku zacząłem dzielić się wiedzą
           z innymi za pomocą korepetycji.
