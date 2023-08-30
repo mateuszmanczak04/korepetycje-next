@@ -1,4 +1,6 @@
+import { AppContextProvider } from '@/context/AppContext';
 import { Metadata } from 'next';
+import { ReactNode } from 'react';
 import '../styles/globals.scss';
 import Footer from './(components)/Footer';
 
@@ -8,15 +10,20 @@ export const metadata: Metadata = {
 };
 
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang='pl'>
+      <head>
+        <link rel='icon' href='/images/favicon.ico' sizes='any' />
+      </head>
       <body>
-        {children}
-        <Footer />
+        <AppContextProvider>
+          {children}
+          <Footer />
+        </AppContextProvider>
       </body>
     </html>
   );

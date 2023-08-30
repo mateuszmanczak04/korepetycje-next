@@ -1,5 +1,6 @@
 type Props = { text: string; smallText?: string };
 
+/** An item displayed in the list with a special sign before. */
 const ListItem = ({ text, smallText }: Props) => {
   return (
     <div className='flex flex-col'>

@@ -1,7 +1,3 @@
-'use client';
-
-import Link from 'next/link';
-
 const page = () => {
   return (
     <div className='w-screen h-[calc(100vh-5rem)] flex flex-col gap-4 items-center py-16'>

@@ -4,13 +4,19 @@ import { useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 
 type Props = {
-  rating: number;
+  rating: Rating;
   setRating?: (n: number) => void;
   changeable?: boolean;
   size: number;
   gap?: number;
 };
 
+/**
+ * A combination of 5 stars at maximum.
+ * @param rating - rating between 1 and 5
+ * @param changeable - if true, the rating can be changed
+ * @param size - size of the stars specified in tailwind units
+ */
 const RatingStars = ({
   rating,
   changeable = false,

@@ -1,26 +1,10 @@
-import Image from 'next/image';
+import ViewObserver from './ViewObserver';
 
-const Hero = () => {
+/** A short introduction about myself. */
+const Introduction = () => {
   return (
-    <section className='flex flex-col gap-8'>
-      <div className='w-full flex flex-col sm:flex-row-reverse bg-primary-500 rounded-md overflow-hidden pt-4 pr-4'>
-        <div className='flex flex-col w-full ml-4 sm:ml-0'>
-          <h1 className='text-4xl font-extrabold text-primary-800 bg-primary-200 py-2 px-4 rounded-md w-fit'>
-            Korepetycje
-          </h1>
-          <h3 className='text-xl text-primary-900 w-fit ml-4 mt-1 py-1 px-2 rounded-md bg-primary-300'>
-            Mateusz Mańczak
-          </h3>
-        </div>
-        <Image
-          src='/me-without-background.png'
-          alt='me'
-          width={500}
-          height={500}
-          className='w-full max-w-xs aspect-square object-cover object-top'
-        />
-      </div>
-      <div className='mt-2'>
+    <ViewObserver id='introduction'>
+      <section className='flex flex-col gap-8 mt-2'>
         <h2>Pozwól mi się przedstawić.</h2>
         <p className='mt-2'>
           Mam na imię Mateusz i w tym roku zaczynam studia na Uniwersytecie
@@ -43,9 +27,9 @@ const Hero = () => {
           Mam nadzieję, że po przeczytaniu treści na tej stronie zdecydujesz się
           podjąć ze mną współpracę i poszerzyć swoją wiedzę.
         </p>
-      </div>
-    </section>
+      </section>
+    </ViewObserver>
   );
 };
 
-export default Hero;
+export default Introduction;

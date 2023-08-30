@@ -1,3 +1,4 @@
+/** The least element of the page displayed on the bottom. */
 const Footer = () => {
   return (
     <footer className='w-full bg-primary-100 text-primary-500 mt-auto h-20 items-center p-4 flex justify-center'>

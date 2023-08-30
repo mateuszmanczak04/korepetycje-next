@@ -1,5 +1,7 @@
 import RatingStars from './RatingStars';
+import ViewObserver from './ViewObserver';
 
+/** A list of reviews which I have received. */
 const Reviews = () => {
   const reviews: Review[] = [
     {
@@ -25,24 +27,26 @@ const Reviews = () => {
   ];
 
   return (
-    <section>
-      <h2>Sprawdź opinie innych osób</h2>
-      <div className='mt-4 columns-1 md:columns-2 space-y-2 gap-x-2'>
-        {reviews.map((review: Review) => (
-          <div
-            key={review.id}
-            className=' p-4 shadow-xl rounded-md inline-flex flex-col flex-wrap gap-2 flex-1 bg-white'>
-            <div className='flex items-center gap-2 w-full'>
-              <p className='opacity-75 bg-primary-100 w-fit px-2 rounded'>
-                {review.author}
-              </p>
-              <RatingStars rating={review.rating} size={6} />
+    <ViewObserver id='reviews'>
+      <section>
+        <h2>Sprawdź opinie innych osób</h2>
+        <div className='mt-4 columns-1 md:columns-2 space-y-2 gap-x-2'>
+          {reviews.map((review: Review) => (
+            <div
+              key={review.id}
+              className=' p-4 shadow-xl rounded-md inline-flex flex-col w-full flex-wrap gap-2 bg-white'>
+              <div className='flex items-center gap-2 w-full'>
+                <p className='opacity-75 bg-primary-100 w-fit px-2 rounded'>
+                  {review.author}
+                </p>
+                <RatingStars rating={review.rating} size={6} />
+              </div>
+              <p>{review.content}</p>
             </div>
-            <p>{review.content}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+    </ViewObserver>
   );
 };
 
