@@ -20,7 +20,7 @@ const Process = () => {
           potrzebne wzory do ukończenia ćwiczenia.
           <br />
           <br />
-          Na koniec zajęć zadaję trochę do domu na powtórzenie bo bez chociaż
+          Na koniec zajęć zadaję trochę do domu na powtórzenie, bo bez chociaż
           jednorazowej powtórki cała lekcja traci sens.
           <br />
           <br />W praktyce to uczeń pisze przez 90% czasu, a ja tylko momentami,
