@@ -19,10 +19,8 @@ const ViewObserver = ({ id, children }: Props) => {
     // set active session to the received id if the ref is in the center of the viewport
     if (ref.current) {
       // pixels from the top of the document
-      const { top, bottom } = ref.current.getBoundingClientRect();
-      const height = window.innerHeight;
-      const offset = height / 2 + 50;
-      if (top - offset <= 0 && bottom + offset >= 0) {
+      const { top } = ref.current.getBoundingClientRect();
+      if (top <= 100 && top >= 0) {
         setActiveSection(id);
       }
     }

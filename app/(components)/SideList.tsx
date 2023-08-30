@@ -4,11 +4,6 @@ import useAppContext from '@/hooks/useAppContext';
 import twClass from '@/utilities/twClass';
 import Link from 'next/link';
 
-type Section = {
-  id: string;
-  name: string;
-};
-
 /** A list displayed on the right showing currently read section. */
 const SideList = () => {
   const sections: Section[] = [
@@ -22,13 +17,13 @@ const SideList = () => {
   ];
 
   /* a section positioned in the center of the screen */
-  const { activeSection } = useAppContext();
+  const { activeSection, setActiveSection } = useAppContext();
 
   /* scroll to make an element visible in the screen center */
-  const handleScroll = (id: string) => {
-    console.log(id);
+  const handleScroll = (id: PossibleSection) => {
     const el = document.getElementById(id);
     if (el) {
+      setActiveSection(id);
       const { top: elTop } = el.getBoundingClientRect();
       window.scrollTo({
         top: elTop + window.scrollY - 100,
@@ -45,7 +40,7 @@ const SideList = () => {
             key={section.id}
             onClick={() => handleScroll(section.id)}
             className={twClass([
-              'bg-white px-2 py-4 text-sm hover:bg-primary-500 hover:text-white transition duration-75 cursor-pointer rounded-md',
+              'bg-white w-64 px-4 h-10 grid items-center text-sm hover:bg-primary-500 hover:text-white transition duration-75 cursor-pointer rounded-md box-border',
               activeSection === section.id &&
                 'bg-primary-400 text-white font-bold',
             ])}>

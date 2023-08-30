@@ -20,10 +20,7 @@ const RootLayout = ({ children }: Props) => {
         <link rel='icon' href='/images/favicon.ico' sizes='any' />
       </head>
       <body>
-        <AppContextProvider>
-          {children}
-          <Footer />
-        </AppContextProvider>
+        <AppContextProvider>{children}</AppContextProvider>
       </body>
     </html>
   );

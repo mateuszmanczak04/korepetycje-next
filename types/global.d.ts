@@ -23,6 +23,5 @@ declare global {
   interface Section {
     id: PossibleSection;
     name: string;
-    element: HTMLElement | null;
   }
 }

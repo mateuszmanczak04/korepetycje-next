@@ -8,6 +8,7 @@ import PriceList from './(components)/PriceList';
 import Process from './(components)/Process';
 import Reviews from './(components)/Reviews';
 import SideList from './(components)/SideList';
+import Footer from './(components)/Footer';
 
 export const metadata: Metadata = {
   title: 'Korepetycje - Mateusz Mańczak',
@@ -16,10 +17,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className='w-full mx-auto max-w-5xl px-4 pt-4 pb-80 flex flex-col gap-4'>
+    <main className='w-screen flex flex-col gap-4'>
       <Header />
-      <div className='flex gap-4'>
-        <div className='flex-1 flex flex-col gap-16'>
+      <div className='flex gap-4 px-4 w-full mx-auto max-w-5xl'>
+        <div className='flex-1 flex flex-col gap-16 pb-[30rem]'>
           <Introduction />
           <Process />
           <Level />
@@ -30,6 +31,7 @@ export default function Page() {
         </div>
         <SideList />
       </div>
+      <Footer />
     </main>
   );
 }
