@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className='w-screen flex flex-col gap-4 mt-4'>
+    <main className='w-screen flex flex-col gap-4 lg:mt-4'>
       <Header />
       <div className='flex gap-4 px-4 w-full mx-auto max-w-5xl'>
         <div className='flex-1 flex flex-col gap-16 pb-[30rem]'>

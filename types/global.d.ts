@@ -10,6 +10,8 @@ declare global {
     id: number;
   }
 
+  /** A type globally accessible which represents 
+  all possible sections in the app */
   type PossibleSection =
     | 'introduction'
     | 'process'

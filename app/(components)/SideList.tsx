@@ -17,18 +17,25 @@ const SideList = () => {
   ];
 
   /* a section positioned in the center of the screen */
-  const { activeSection, setActiveSection } = useAppContext();
+  const { activeSection, setActiveSection, setIsScrolling } = useAppContext();
 
   /* scroll to make an element visible in the screen center */
   const handleScroll = (id: PossibleSection) => {
     const el = document.getElementById(id);
+
+    const doScrolling = async (el: HTMLElement) => {};
+
     if (el) {
+      setIsScrolling(true);
       setActiveSection(id);
       const { top: elTop } = el.getBoundingClientRect();
       window.scrollTo({
         top: elTop + window.scrollY - 100,
         behavior: 'smooth',
       });
+      setTimeout(() => setIsScrolling(false), 300);
+      // TODO: really await scrolling, don't use artificial
+      // delay of 300 ms
     }
   };
 

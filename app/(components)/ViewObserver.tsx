@@ -12,10 +12,11 @@ type Props = {
  * it is currently displayed near the middle of the screen.
  */
 const ViewObserver = ({ id, children }: Props) => {
-  const { setActiveSection } = useAppContext();
+  const { setActiveSection, isScrolling } = useAppContext();
   const ref = useRef<HTMLDivElement>(null);
 
   const handleScroll = useCallback(() => {
+    if (isScrolling) return;
     // set active session to the received id if the ref is in the center of the viewport
     if (ref.current) {
       // pixels from the top of the document
@@ -24,7 +25,7 @@ const ViewObserver = ({ id, children }: Props) => {
         setActiveSection(id);
       }
     }
-  }, [id, setActiveSection]);
+  }, [id, setActiveSection, isScrolling]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
