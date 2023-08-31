@@ -4,7 +4,7 @@ import ViewObserver from './ViewObserver';
 const Introduction = () => {
   return (
     <ViewObserver id='introduction'>
-      <section className='flex flex-col gap-8 mt-2'>
+      <section className='flex flex-col mt-2'>
         <h2>Pozwól mi się przedstawić.</h2>
         <p className='mt-2'>
           Mam na imię Mateusz i w tym roku zaczynam studia na Uniwersytecie
