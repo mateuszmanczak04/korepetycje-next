@@ -7,7 +7,7 @@ const Process = () => {
       <section>
         <h2>Przebieg lekcji</h2>
         <p className='mt-2'>
-          Całą lekcja polega na robieniu tego, co w matematyce najważniejsze,
+          Cała lekcja polega na robieniu tego, co w matematyce najważniejsze,
           czyli na zadaniach. Uczeń podaje mi jakie zagadnienia musi opanować
           (lub też po prostu chce), a ja tłumaczę potrzebną teorię i wybieram z
           jego lub mojego zbioru zadań odpowiednie zadania, które następnie

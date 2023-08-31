@@ -18,7 +18,7 @@ const Introduction = () => {
           z innymi za pomocą korepetycji.
           <br />
           <br />
-          Aby potwierdzi moje kompetencje, dodam, że z matury z matematyki na
+          Aby potwierdzić moje kompetencje, dodam, że z matury z matematyki na
           poziomie podstawowym dostałem{' '}
           <span className='font-bold bg-primary-100'>100%</span>, a z
           rozszerzenia <span className='font-bold bg-primary-100'>92%</span>.
