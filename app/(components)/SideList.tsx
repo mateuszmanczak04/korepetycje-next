@@ -47,9 +47,8 @@ const SideList = () => {
             key={section.id}
             onClick={() => handleScroll(section.id)}
             className={twClass([
-              'bg-white w-64 px-4 h-10 grid items-center text-sm hover:bg-primary-500 hover:text-white transition duration-75 cursor-pointer rounded-md box-border',
-              activeSection === section.id &&
-                'bg-primary-400 text-white font-bold',
+              'bg-white w-64 px-4 h-10 grid items-center text-sm hover:bg-primary-100 hover:text-primary-500 transition duration-75 cursor-pointer rounded-md box-border',
+              activeSection === section.id && 'text-primary-500 font-bold',
             ])}>
             {section.name}
           </li>
