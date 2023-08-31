@@ -32,6 +32,12 @@ type Props = {
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang='pl'>
+      <head>
+        <meta
+          name='google-site-verification'
+          content='c7YmShweJNuxwjg9I5xFox43bvt8eIvXNVJqOwM1EzA'
+        />
+      </head>
       <body>
         <AppContextProvider>{children}</AppContextProvider>
       </body>
