@@ -24,6 +24,13 @@ const Reviews = () => {
         'Bardzo odpowiadają mi korki. Generalnie Mateusz jest cierpliwy i w łatwy i zrozumiały sposób tłumaczy materiał, co potem ułatwia naukę.',
       rating: 5,
     },
+    {
+      id: 3,
+      author: 'Kacper',
+      content:
+        'Polecam, korepetycje pomogły przygotować się do egzaminu  i w pół roku pomogły nadrobić 4 lata nauki',
+      rating: 5,
+    },
   ];
 
   return (
